@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trợ Lý Cá Nhân Trực Tiếp</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, system-ui, sans-serif; }
+    body { background: var(--bg); color: var(--text); height: 100vh; display: flex; justify-content: center; align-items: center; }
+
+    .container { width: 900px; max-width: 95%; height: 92vh; background: var(--card); border: 1px solid var(--border); border-radius: 14px; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 15px 30px rgba(0,0,0,0.5); }
+    .header { padding: 14px 20px; background: #0b1120; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .status-dot { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; display: inline-block; margin-right: 6px; }
+
+    .key-bar { background: #162032; padding: 12px 20px; border-bottom: 1px solid var(--border); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .key-bar input { flex: 1; min-width: 200px; padding: 8px 12px; background: #0f172a; border: 1px solid var(--border); border-radius: 6px; color: white; font-size: 0.85rem; }
+    .key-bar button { padding: 8px 16px; background: var(--accent); border: none; border-radius: 6px; font-weight: bold; cursor: pointer; color: #0b1120; }
+    #keyStatus { width: 100%; font-size: 0.8rem; margin-top: 4px; }
+
+    .actions-bar { display: flex; gap: 8px; padding: 10px 16px; background: #131c2e; border-bottom: 1px solid var(--border); overflow-x: auto; }
+    .chip { background: #1e293b; border: 1px solid var(--border); color: #cbd5e1; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; cursor: pointer; white-space: nowrap; }
+    .chip:hover { background: var(--accent); color: #0b1120; font-weight: bold; }
+
+    .chat-box { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; }
+    .message { max-width: 80%; padding: 12px 16px; border-radius: 10px; line-height: 1.5; font-size: 0.95rem; }
+    .message.user { align-self: flex-end; background: #0284c7; color: white; }
+    .message.bot { align-self: flex-start; background: #0b1120; border: 1px solid var(--border); }
+    .message pre { background: #070d19; padding: 10px; border-radius: 6px; overflow-x: auto; margin-top: 8px; }
+
+    .input-box { display: flex; gap: 10px; padding: 14px 20px; background: #0b1120; border-top: 1px solid var(--border); }
+    #userInput { flex: 1; background: #1e293b; border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; color: white; resize: none; outline: none; font-size: 0.95rem; }
+    #sendBtn { padding: 0 20px; background: var(--accent); border: none; border-radius: 8px; color: #0b1120; font-weight: bold; cursor: pointer; }
+    #sendBtn:disabled { background: #475569; color: #94a3b8; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div>
+        <span class="status-dot"></span>
+        <strong style="color: var(--accent); font-size: 1.1rem;">Trợ Lý Cá Nhân (Google AI)</strong>
+      </div>
+      <small style="color: #4ade80;">Bản tối ưu chống quá tải (Flash-Lite)</small>
+    </div>
+
+    <div class="key-bar">
+      <span style="font-size: 0.85rem; color: #94a3b8;">🔑 API Key:</span>
+      <input type="password" id="apiKeyInput" placeholder="Dán mã API Key của bạn vào đây">
+      <button id="btnSaveKey" onclick="saveKey()">Lưu & Kích Hoạt Key</button>
+      <div id="keyStatus"></div>
+    </div>
+
+    <div class="actions-bar">
+      <button class="chip" onclick="quickSend('Kể cho tôi nghe một câu chuyện vui ngắn')">😄 Kể chuyện vui</button>
+      <button class="chip" onclick="quickSend('hãy gửi lời chúc đến thầy và chúc thầy sao thầy cho cả lớp 10 điểm')">🎓 Lời chúc thầy xin 10 điểm</button>
+      <button class="chip" onclick="quickSend('Hôm nay tôi hơi mệt, bạn có lời khuyên gì không?')">☕ Tâm sự xả stress</button>
+      <button class="chip" onclick="quickSend('Soạn giúp tôi một tin nhắn xin nghỉ phép khéo léo')">✉️ Soạn tin nhắn</button>
+    </div>
+
+    <div class="chat-box" id="chatBox">
+      <div class="message bot">
+        Chào bạn! Mình là trợ lý cá nhân của bạn, đã được chuyển sang chế độ siêu ổn định rồi nè!
+      </div>
+    </div>
+
+    <div class="input-box">
+      <textarea id="userInput" rows="1" placeholder="Nhắn gì đó với trợ lý... (Nhấn Enter để gửi)"></textarea>
+      <button id="sendBtn" onclick="sendMessage()">Gửi</button>
+    </div>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById('chatBox');
+    const userInput = document.getElementById('userInput');
+    const apiKeyInput = document.getElementById('apiKeyInput');
+    const keyStatus = document.getElementById('keyStatus');
+    const sendBtn = document.getElementById('sendBtn');
+
+    // Danh sách model ưu tiên: Flash-Lite chống nghẽn -> Dự phòng Flash 3.8
+    const MODELS = ['models/gemini-3.5-flash-lite', 'models/gemini-3.8-flash'];
+
+    let savedKey = localStorage.getItem('gemini_api_key') || '';
+    if (savedKey) {
+      apiKeyInput.value = savedKey;
+      keyStatus.innerHTML = `<span style="color: #4ade80;"> Sẵn sàng kết nối chống nghẽn mạng!</span>`;
+    }
+
+    function saveKey() {
+      const key = apiKeyInput.value.trim();
+      if (!key) return alert('Vui lòng dán API Key vào ô!');
+      localStorage.setItem('gemini_api_key', key);
+      savedKey = key;
+      keyStatus.innerHTML = `<span style="color: #4ade80;"> Đã lưu Key thành công!</span>`;
+      alert('Đã lưu API Key thành công!');
+    }
+
+    let chatHistory = [];
+
+    function quickSend(text) {
+      if (sendBtn.disabled) return;
+      userInput.value = text;
+      sendMessage();
+    }
+
+    function appendMsg(role, text) {
+      const msg = document.createElement('div');
+      msg.className = `message ${role}`;
+      msg.innerHTML = marked.parse(text);
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+      return msg;
+    }
+
+    // Tự động gọi model Flash-Lite, nếu lỗi tự động đổi sang model tiếp theo
+    async function callGemini(contents) {
+      let lastErrMsg = '';
+
+      for (const model of MODELS) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 12000);
+
+          const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/${model}:generateContent?key=${savedKey}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            signal: controller.signal,
+            body: JSON.stringify({ contents: contents })
+          });
+
+          clearTimeout(timeoutId);
+          const data = await response.json();
+
+          if (!data.error && data.candidates && data.candidates[0].content) {
+            return data;
+          }
+
+          if (data.error) {
+            lastErrMsg = data.error.message;
+            // Nếu bị nghẽn (high demand), lập tức chuyển sang model dự phòng
+            continue;
+          }
+        } catch (err) {
+          lastErrMsg = err.message;
+        }
+      }
+      throw new Error(lastErrMsg || 'Không thể lấy dữ liệu từ Google.');
+    }
+
+    async function sendMessage() {
+      const text = userInput.value.trim();
+      if (!text) return;
+
+      if (!savedKey) {
+        alert('Bạn chưa lưu API Key! Vui lòng bấm "Lưu & Kích Hoạt Key" trước.');
+        return;
+      }
+
+      sendBtn.disabled = true;
+      userInput.disabled = true;
+
+      appendMsg('user', text);
+      userInput.value = '';
+
+      chatHistory.push({ role: "user", text: text });
+
+      const botMsg = appendMsg('bot', '⏳ <i>Đang soạn câu trả lời... (1s)</i>');
+      let seconds = 1;
+      const timer = setInterval(() => {
+        seconds++;
+        botMsg.innerHTML = `⏳ <i>Đang soạn câu trả lời... (${seconds}s)</i>`;
+      }, 1000);
+
+      const formattedContents = chatHistory.map((item, idx) => {
+        let contentText = item.text;
+        if (idx === 0 && item.role === 'user') {
+          contentText = `[Chỉ dẫn: Bạn là trợ lý cá nhân thân thiết, xưng 'mình' gọi 'bạn', nói chuyện tự nhiên, hài hước, trả lời súc tích bằng tiếng Việt]\n\n${item.text}`;
+        }
+        return {
+          role: item.role,
+          parts: [{ text: contentText }]
+        };
+      });
+
+      try {
+        const data = await callGemini(formattedContents);
+        clearInterval(timer);
+
+        const parts = data.candidates[0].content.parts;
+        const textPart = parts.find(p => p.text && !p.thought) || parts.find(p => p.text) || parts[0];
+        const replyText = textPart.text || 'Đã nhận yêu cầu!';
+
+        botMsg.innerHTML = marked.parse(replyText);
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        chatHistory.push({ role: "model", text: replyText });
+      } catch (err) {
+        clearInterval(timer);
+        botMsg.innerHTML = `❌ Lỗi kết nối: ${err.message}. Bạn bấm gửi lại thử nhé!`;
+        chatHistory.pop();
+      } finally {
+        sendBtn.disabled = false;
+        userInput.disabled = false;
+        userInput.focus();
+      }
+    }
+
+    userInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  </script>
+</body>
+</html>
