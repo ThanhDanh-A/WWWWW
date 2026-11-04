@@ -142,7 +142,6 @@ function updateConnectionUI() {
     ? "API Key đã được lưu trên thiết bị"
     : "Dán API Key tại đây";
 
-  el.testKey.disabled = !hasKey && !el.apiKeyInput.value.trim();
   el.testKey.textContent = isCheckingConnection ? "Đang kiểm tra..." : "Kiểm tra kết nối";
   el.testKey.disabled = isCheckingConnection || isSending ||
     (!hasKey && !el.apiKeyInput.value.trim());
@@ -516,7 +515,11 @@ el.removeKey.addEventListener("click", () => {
     return;
   }
 
-  removeApiKey();
+  if (!removeApiKey()) {
+    showToast("Không thể xóa API Key khỏi localStorage của trình duyệt.", "error");
+    return;
+  }
+
   apiKey = "";
   connectionState = "none";
   connectedModel = "";
