@@ -34,10 +34,11 @@
       <div class="sidebar-bottom">
         <div class="privacy-note"><span class="privacy-icon" aria-hidden="true">⌁</span><div><strong>Quyền riêng tư</strong><p>API Key được lưu trên trình duyệt của bạn.</p></div></div>
         <section class="settings-card" aria-labelledby="apiHeading">
-          <div class="settings-title"><span class="settings-icon" aria-hidden="true">⌘</span><div><strong id="apiHeading">Kết nối Gemini</strong><small id="keyStatus">Chưa cấu hình API Key</small></div></div>
+          <div class="settings-title"><span class="settings-icon" aria-hidden="true">⌘</span><div><strong id="apiHeading">Kết nối Gemini</strong><small id="keyStatus" role="status" aria-live="polite">Chưa cấu hình API Key</small></div></div>
           <label class="sr-only" for="apiKeyInput">Google Gemini API Key</label>
           <input id="apiKeyInput" class="key-input" type="password" autocomplete="off" spellcheck="false" placeholder="Dán API Key tại đây">
           <div class="key-actions"><button class="button button-primary button-small" id="saveKeyBtn" type="button">Lưu API Key</button><button class="button button-quiet button-small" id="removeKeyBtn" type="button">Xóa</button></div>
+          <button class="button button-test-key button-small" id="testKeyBtn" type="button" disabled>Kiểm tra kết nối</button>
           <p class="key-help">Không chia sẻ API Key. Không nhập khóa trên thiết bị công cộng.</p>
           <a class="api-link" href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer">Lấy API Key từ Google AI Studio ↗</a>
         </section>
