@@ -105,6 +105,7 @@ Các hình minh họa dưới đây mô tả những nhóm chức năng chính c
 | localStorage | Lưu API Key và lịch sử trò chuyện trên thiết bị |
 | GitHub | Quản lý mã nguồn |
 | GitHub Pages | Triển khai website tĩnh |
+| GitHub Actions | Tự động kiểm tra cú pháp và tham chiếu tài nguyên |
 
 ## 5. Cấu trúc thư mục
 
@@ -113,6 +114,10 @@ WWWWW/
 ├── index.html
 ├── README.md
 ├── .gitignore
+├── .editorconfig
+├── .github/
+│   └── workflows/
+│       └── quality-checks.yml
 ├── assets/
 │   ├── css/
 │   │   └── style.css
@@ -144,6 +149,8 @@ WWWWW/
 
 **Vai trò các tệp chính:**
 
+- `.editorconfig`: quy tắc định dạng tệp để các trình soạn thảo dùng thống nhất.
+- `.github/workflows/quality-checks.yml`: kiểm tra cú pháp JavaScript và liên kết cục bộ tự động trên GitHub Actions.
 - `index.html`: trang chính và các thành phần giao diện.
 - `assets/css/style.css`: màu sắc, bố cục, hiệu ứng và giao diện trên điện thoại.
 - `assets/js/app.js`: điều khiển giao diện, gửi tin nhắn và quản lý hội thoại.
