@@ -86,6 +86,7 @@ WWWWW/
 - `assets/js/gemini.js`: gọi Gemini API, xử lý phản hồi và model dự phòng.
 - `assets/js/storage.js`: đọc và ghi API Key, lịch sử hội thoại vào localStorage.
 - `assets/images/logo.svg`: biểu tượng của dự án.
+- `assets/images/ai-mascot.svg`: hình minh họa robot AI ở màn hình chào mừng.
 - `archive/original/`: bản sao các tệp gốc trước khi nâng cấp, được giữ lại để tham khảo và khôi phục.
 
 ## 6. Hướng dẫn sử dụng
