@@ -74,7 +74,9 @@ WWWWW/
 │   │   ├── gemini.js
 │   │   └── storage.js
 │   └── images/
-│       └── logo.svg
+│       ├── logo.svg
+│       ├── ai-mascot.svg
+│       └── github-banner.svg
 └── archive/
     └── original/
         ├── index.html
