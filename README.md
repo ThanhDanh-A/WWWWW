@@ -14,6 +14,14 @@
   <a href="https://aistudio.google.com/apikey">🔑 Tạo Gemini API Key</a>
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-Structure-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-Design-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JavaScript-ES_Modules-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111827" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Google-Gemini_API-8E75B2?style=for-the-badge&logo=google&logoColor=white" alt="Google Gemini API">
+  <img src="https://img.shields.io/badge/Deploy-GitHub_Pages-222222?style=for-the-badge&logo=githubpages&logoColor=white" alt="GitHub Pages">
+</p>
+
 ---
 
 ## 1. Giới thiệu
@@ -44,6 +52,39 @@ Dự án hướng đến việc thực hành phát triển ứng dụng web, tí
 | Giao diện responsive | Hỗ trợ bố cục máy tính và thiết bị di động |
 | Xử lý lỗi | Hiển thị thông báo khi API Key, mạng hoặc dịch vụ Gemini gặp vấn đề |
 | Model dự phòng | Thử model Gemini Flash-Lite trước, sau đó chuyển sang Flash khi cần |
+
+## Góc nhìn nhanh về dự án
+
+Các hình minh họa dưới đây mô tả những nhóm chức năng chính của ứng dụng. Đây là hình minh họa chức năng, không phải ảnh chụp màn hình kết quả chạy thực tế.
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="assets/images/features/chat.svg" alt="Minh họa trò chuyện với AI" width="100%">
+      <strong>Trò chuyện với AI</strong><br>
+      <sub>Gửi câu hỏi và nhận phản hồi từ Gemini</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="assets/images/features/gemini.svg" alt="Minh họa kết nối Gemini API" width="100%">
+      <strong>Kết nối Gemini API</strong><br>
+      <sub>Gửi yêu cầu và nhận dữ liệu qua API</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="assets/images/features/history.svg" alt="Minh họa lịch sử hội thoại" width="100%">
+      <strong>Lịch sử hội thoại</strong><br>
+      <sub>Lưu và mở lại các cuộc trò chuyện</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="assets/images/features/responsive.svg" alt="Minh họa giao diện đa thiết bị" width="100%">
+      <strong>Thiết kế responsive</strong><br>
+      <sub>Thích ứng với màn hình máy tính và điện thoại</sub>
+    </td>
+  </tr>
+</table>
+
+---
 
 ## 4. Công nghệ sử dụng
 
@@ -76,7 +117,12 @@ WWWWW/
 │   └── images/
 │       ├── logo.svg
 │       ├── ai-mascot.svg
-│       └── github-banner.svg
+│       ├── github-banner.svg
+│       └── features/
+│           ├── chat.svg
+│           ├── gemini.svg
+│           ├── history.svg
+│           └── responsive.svg
 └── archive/
     └── original/
         ├── index.html
@@ -93,7 +139,26 @@ WWWWW/
 - `assets/js/storage.js`: đọc và ghi API Key, lịch sử hội thoại vào localStorage.
 - `assets/images/logo.svg`: biểu tượng của dự án.
 - `assets/images/ai-mascot.svg`: hình minh họa robot AI ở màn hình chào mừng.
+- `assets/images/github-banner.svg`: banner giới thiệu dự án ở đầu README.
+- `assets/images/features/`: các hình minh họa cho nhóm tính năng trong README.
 - `archive/original/`: bản sao các tệp gốc trước khi nâng cấp, được giữ lại để tham khảo và khôi phục.
+
+## 5.1. Sơ đồ hoạt động
+
+Sơ đồ dưới đây mô tả luồng xử lý chính của ứng dụng:
+
+```mermaid
+flowchart TD
+    U[Người dùng] --> UI[index.html<br/>Giao diện HTML/CSS]
+    UI --> APP[app.js<br/>Điều khiển hội thoại]
+    APP --> STORE[storage.js<br/>Lưu dữ liệu trình duyệt]
+    STORE --> LOCAL[(localStorage)]
+    APP --> GEM[gemini.js<br/>Gửi yêu cầu API]
+    GEM --> API[Google Gemini API]
+    API --> GEM
+    GEM --> APP
+    APP --> UI
+```
 
 ## 6. Hướng dẫn sử dụng
 
