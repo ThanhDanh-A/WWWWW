@@ -186,7 +186,7 @@ Truy cập [Personal AI Assistant](https://thanhdanh-a.github.io/WWWWW/).
 
 1. Mở [Google AI Studio – API Keys](https://aistudio.google.com/apikey).
 2. Đăng nhập tài khoản Google.
-3. Tạo API Key theo hướng dẫn của Google.
+3. Tạo API Key theo hướng dẫn của Google. Theo tài liệu hiện hành, key tạo mới trong AI Studio mặc định dùng loại authorization key từ ngày 28/05/2026; nếu key cũ không dùng được, kiểm tra trạng thái và giới hạn key theo hướng dẫn Google.
 4. Sao chép khóa vừa tạo.
 
 ### Bước 3. Kết nối API Key
