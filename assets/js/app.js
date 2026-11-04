@@ -103,6 +103,11 @@ function updateConnectionUI() {
       pill: "Chưa kiểm tra",
       className: ""
     },
+    unverified: {
+      key: "API Key mới • Chưa kiểm tra",
+      pill: "Chưa kiểm tra",
+      className: ""
+    },
     checking: {
       key: "Đang kiểm tra kết nối Gemini...",
       pill: "Đang kiểm tra",
@@ -589,7 +594,18 @@ el.chatForm.addEventListener("submit", (event) => {
   sendMessage();
 });
 
-el.apiKeyInput.addEventListener("input", updateConnectionUI);
+el.apiKeyInput.addEventListener("input", () => {
+  const typedKey = el.apiKeyInput.value.trim();
+
+  if (typedKey && typedKey !== apiKey) {
+    connectionState = "unverified";
+    connectedModel = "";
+  } else if (!typedKey) {
+    connectionState = apiKey ? "saved" : "none";
+  }
+
+  updateConnectionUI();
+});
 el.userInput.addEventListener("input", updateComposer);
 el.userInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter" && !event.shiftKey) {
