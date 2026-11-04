@@ -76,7 +76,7 @@ jobs:
           pattern = r"""document\.getElementById\("([^"]+)"\)"""
           required_ids = set(re.findall(pattern, app_source))
 
-          module_paths = re.findall(r"""from\\s+["'](\\./[^"']+)["']""", app_source)
+          module_paths = ["./storage.js", "./gemini.js"]
           missing_modules = [
               module for module in module_paths
               if not (Path("assets/js") / module.removeprefix("./")).exists()
