@@ -262,18 +262,6 @@ Google có cung cấp cấp miễn phí cho một số model và hạn mức s�
 
 Bảng kiểm thử chi tiết, kết quả mong đợi và trạng thái thực hiện được ghi trong [docs/TESTING.md](docs/TESTING.md). Các ca kiểm thử chỉ được đánh dấu PASS sau khi đã chạy thực tế trên trình duyệt.
 
-- [ ] Website mở được trên máy tính.
-- [ ] Website hiển thị tốt trên màn hình điện thoại.
-- [ ] Lưu API Key và tải lại trang vẫn giữ trạng thái đã cấu hình.
-- [ ] Gửi câu hỏi và nhận được phản hồi từ Gemini.
-- [ ] Các thẻ câu hỏi gợi ý hoạt động.
-- [ ] Enter gửi tin nhắn; Shift + Enter xuống dòng.
-- [ ] Có thể tạo, mở và xóa cuộc trò chuyện.
-- [ ] Tải lại trang vẫn còn lịch sử đã lưu.
-- [ ] Nút sao chép câu trả lời hoạt động.
-- [ ] API Key sai hoặc hết hạn hiển thị thông báo phù hợp.
-- [ ] Xóa API Key làm ứng dụng yêu cầu cấu hình lại trước khi trò chuyện.
-
 ## 12. Tài liệu dự án
 
 - [Sơ đồ kiến trúc hệ thống](docs/ARCHITECTURE.md)
