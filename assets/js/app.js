@@ -453,16 +453,17 @@ async function runConnectionTest(candidateKey) {
   try {
     const result = await testConnection(candidateKey);
 
-    // Chỉ lưu khóa mới sau khi kiểm tra API thành công.
-    if (!saveApiKey(candidateKey)) {
-      throw new Error("Gemini đã phản hồi nhưng trình duyệt không cho phép lưu API Key.");
-    }
-
+    // Chỉ dùng khóa mới sau khi Gemini đã phản hồi thành công.
     apiKey = candidateKey;
     connectedModel = result.model;
     connectionState = "connected";
     el.apiKeyInput.value = "";
-    showToast(`Kết nối Gemini thành công với ${result.model}.`);
+
+    if (saveApiKey(candidateKey)) {
+      showToast(`Kết nối Gemini thành công với ${result.model}; API Key đã được lưu.`);
+    } else {
+      showToast(`Gemini đã kết nối với ${result.model}, nhưng trình duyệt không thể lưu API Key. Khóa chỉ dùng trong phiên hiện tại.`, "error");
+    }
   } catch (error) {
     connectionState = error.status === 429 ? "warning" : "error";
     showToast(error.message, "error");
