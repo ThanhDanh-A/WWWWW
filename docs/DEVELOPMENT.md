@@ -47,10 +47,11 @@ Không nên mở file trực tiếp bằng đường dẫn `file://`, vì trình
 ## 5. Kết nối Gemini
 
 1. Tạo hoặc quản lý API Key tại [Google AI Studio](https://aistudio.google.com/apikey).
-2. Chỉ nhập khóa trong phần **Kết nối Gemini** trên website.
-3. Chọn **Lưu API Key** để lưu khóa trên trình duyệt hiện tại.
-4. Chọn **Kiểm tra kết nối** để gửi yêu cầu thử nghiệm thực tế.
-5. Khi giao diện báo Gemini đã kết nối, gửi một câu hỏi để kiểm tra trò chuyện.
+2. Theo tài liệu Google hiện hành, API Key tạo mới trong AI Studio mặc định dùng loại authorization key từ ngày 28/05/2026. Một số standard key không giới hạn có thể bị từ chối; hãy làm theo hướng dẫn bảo mật/giới hạn key của Google nếu khóa cũ không hoạt động.
+3. Chỉ nhập khóa trong phần **Kết nối Gemini** trên website.
+4. Chọn **Lưu API Key** để lưu khóa trên trình duyệt hiện tại.
+5. Chọn **Kiểm tra kết nối** để gửi yêu cầu thử nghiệm thực tế.
+6. Khi giao diện báo Gemini đã kết nối, gửi một câu hỏi để kiểm tra trò chuyện.
 
 Lưu ý: Lưu khóa thành công không đồng nghĩa khóa đã được xác thực. Nếu kiểm tra thất bại, đọc thông báo trên giao diện và kiểm tra quyền API, trạng thái khóa, mạng và hạn mức tài khoản.
 
