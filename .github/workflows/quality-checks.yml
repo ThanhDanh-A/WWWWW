@@ -73,10 +73,8 @@ jobs:
                   missing_files.append(reference)
 
           app_source = Path("assets/js/app.js").read_text(encoding="utf-8")
-          required_ids = set(re.findall(
-              r'document\\.getElementById\\(["\\']([^"\\']+)["\\']\\)',
-              app_source
-          ))
+          pattern = r"""document\\.getElementById\\(["']([^"']+)["']\\)"""
+          required_ids = set(re.findall(pattern, app_source))
           missing_ids = sorted(required_ids - parser.ids)
 
           if missing_files:
