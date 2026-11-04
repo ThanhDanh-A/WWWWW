@@ -25,7 +25,13 @@ Kiểm tra các luồng quan trọng của Personal AI Assistant: mở trang, l�
 | T13 | Xóa API Key | Khóa được xóa khỏi localStorage của ứng dụng | Chưa kiểm thử |
 | T14 | Nhấn Enter/Shift + Enter | Enter gửi tin; Shift + Enter xuống dòng | Chưa kiểm thử |
 
-## 3. Cách ghi nhận kết quả
+## 3. Kiểm tra tự động trên GitHub
+
+GitHub Actions chạy workflow `.github/workflows/quality-checks.yml` khi có push lên nhánh phù hợp hoặc Pull Request vào `main`. Workflow kiểm tra cú pháp các module JavaScript, đường dẫn tài nguyên cục bộ trong HTML, các ID được `app.js` truy cập và hai module JavaScript được import.
+
+Các kiểm tra tự động này không thay thế việc mở website trên trình duyệt, xác thực API Key thật hoặc kiểm thử giao diện trên điện thoại.
+
+## 4. Cách ghi nhận kết quả
 
 Sau khi chạy từng ca kiểm thử, đổi trạng thái thành một trong các giá trị:
 
@@ -34,7 +40,7 @@ Sau khi chạy từng ca kiểm thử, đổi trạng thái thành một trong c
 - **BLOCKED**: chưa thể thử do thiếu API Key, Internet hoặc quyền truy cập.
 - **NOT RUN**: chưa thực hiện.
 
-## 4. Bằng chứng kiểm thử
+## 5. Bằng chứng kiểm thử
 
 Nên chụp ảnh màn hình thật sau khi chạy:
 - Trang chào mừng trên máy tính.
