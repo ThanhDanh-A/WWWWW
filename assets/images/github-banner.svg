@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="480" viewBox="0 0 1440 480" role="img" aria-labelledby="title desc">
+<title id="title">Personal AI Assistant — Your Smart Companion</title>
+<desc id="desc">A futuristic navy, cyan and violet banner featuring a friendly AI robot beside a laptop and the project title.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07132e"/><stop offset=".55" stop-color="#0b1230"/><stop offset="1" stop-color="#160d39"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#35d7ff"/><stop offset=".55" stop-color="#7b8cff"/><stop offset="1" stop-color="#b17cff"/></linearGradient>
+  <linearGradient id="robot" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#ffffff"/><stop offset=".55" stop-color="#c9e7ff"/><stop offset="1" stop-color="#7d9edb"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#456dff" stop-opacity=".36"/><stop offset="1" stop-color="#456dff" stop-opacity="0"/></radialGradient>
+  <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#7da9ff" stroke-opacity=".08" stroke-width="1"/></pattern>
+  <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="12"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<rect width="1440" height="480" rx="28" fill="url(#bg)"/>
+<rect width="1440" height="480" rx="28" fill="url(#grid)"/>
+<circle cx="275" cy="220" r="245" fill="url(#glow)"/>
+<circle cx="1110" cy="200" r="310" fill="url(#glow)" opacity=".7"/>
+<path d="M0 74H260L310 24H590M1000 0H1180L1220 40H1440M0 420H190L220 390H470" fill="none" stroke="url(#accent)" stroke-opacity=".55" stroke-width="2"/>
+<g fill="#7bdfff"><circle cx="80" cy="118" r="3"/><circle cx="545" cy="78" r="2.5"/><circle cx="1228" cy="112" r="3"/><circle cx="1350" cy="330" r="2.5"/></g>
+<!-- robot glow and orbit -->
+<ellipse cx="285" cy="390" rx="210" ry="22" fill="#368bff" opacity=".22" filter="url(#shadow)"/>
+<ellipse cx="280" cy="286" rx="222" ry="125" fill="none" stroke="#37d4ff" stroke-opacity=".55" stroke-width="3" transform="rotate(-15 280 286)"/>
+<ellipse cx="280" cy="286" rx="222" ry="125" fill="none" stroke="#8b83ff" stroke-opacity=".3" stroke-width="1.5" transform="rotate(18 280 286)"/>
+<!-- robot ears -->
+<rect x="105" y="167" width="34" height="92" rx="16" fill="#82caff" stroke="#d9f5ff" stroke-width="5"/>
+<rect x="407" y="167" width="34" height="92" rx="16" fill="#82caff" stroke="#d9f5ff" stroke-width="5"/>
+<!-- robot head -->
+<rect x="125" y="93" width="295" height="225" rx="82" fill="url(#robot)" stroke="#d8f2ff" stroke-width="5"/>
+<path d="M170 112Q272 55 372 112" fill="none" stroke="#53d7ff" stroke-width="10" stroke-linecap="round"/>
+<rect x="151" y="131" width="243" height="151" rx="58" fill="#09152e" stroke="#6ccfff" stroke-width="4"/>
+<path d="M211 205q17-23 34 0M303 205q17-23 34 0" fill="none" stroke="#4edbff" stroke-width="12" stroke-linecap="round"/>
+<path d="M252 236q20 20 40 0" fill="none" stroke="#4edbff" stroke-width="8" stroke-linecap="round"/>
+<circle cx="178" cy="156" r="5" fill="#fff" opacity=".8"/>
+<!-- robot body -->
+<path d="M168 313Q272 282 376 313L402 390H143Z" fill="url(#robot)" stroke="#c9eaff" stroke-width="4"/>
+<circle cx="272" cy="352" r="26" fill="#182f64" stroke="#6bdfff" stroke-width="3"/>
+<path d="M254 353l12-12 11 12-11 12zM275 353l12-12 11 12-11 12z" fill="none" stroke="#8ceeff" stroke-width="3"/>
+<!-- thumbs up -->
+<path d="M92 302q-18-8-25 9l-9 27q-5 17 12 23l38 12q20 6 27-13l9-27q4-15-12-22l-15-6 5-37q2-17-13-18-14-1-17 14z" fill="url(#robot)" stroke="#a9dcff" stroke-width="4"/>
+<!-- laptop -->
+<path d="M310 365h196q13 0 17 12l-15 64H278l17-64q3-12 15-12z" fill="#101d42" stroke="#5cbefb" stroke-width="3"/>
+<path d="M285 441h243l28 18H267z" fill="#8bb5e9" stroke="#c3eaff" stroke-width="2"/>
+<path d="M345 404h120" stroke="#47d6ff" stroke-width="3" stroke-linecap="round" opacity=".6"/>
+<!-- title block -->
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+  <text x="570" y="176" fill="#f4f7ff" font-size="62" font-weight="800" letter-spacing="2">PERSONAL</text>
+  <text x="570" y="246" fill="url(#accent)" font-size="68" font-weight="900" letter-spacing="1">AI ASSISTANT</text>
+  <path d="M572 270H1285" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
+  <text x="574" y="319" fill="#dbe7ff" font-size="31" font-weight="500" letter-spacing="1">YOUR SMART COMPANION</text>
+  <text x="576" y="356" fill="#9eafd5" font-size="17" letter-spacing="1.2">TRỢ LÝ AI CÁ NHÂN • POWERED BY GOOGLE GEMINI</text>
+</g>
+<!-- feature chips -->
+<g font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="600">
+  <rect x="570" y="390" width="205" height="47" rx="13" fill="#13264a" stroke="#3aaeea" stroke-opacity=".6"/>
+  <text x="590" y="420" fill="#aeeaff">✦ Trò chuyện thông minh</text>
+  <rect x="790" y="390" width="175" height="47" rx="13" fill="#19234a" stroke="#777cff" stroke-opacity=".65"/>
+  <text x="810" y="420" fill="#d5d6ff">⚡ Nhanh chóng</text>
+  <rect x="980" y="390" width="165" height="47" rx="13" fill="#18244a" stroke="#a37cff" stroke-opacity=".65"/>
+  <text x="1000" y="420" fill="#e4d8ff">◈ Cá nhân hóa</text>
+</g>
+<!-- speech bubble and sparkle -->
+<path d="M1196 92h164q23 0 23 23v54q0 23-23 23h-80l-30 27 7-27h-61q-23 0-23-23v-54q0-23 23-23z" fill="#17275a" stroke="#8d8aff" stroke-width="2"/>
+<text x="1215" y="137" fill="#e9edff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" font-weight="600">Xin chào! 👋</text>
+<text x="1215" y="164" fill="#8eeaff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">Mình luôn sẵn sàng!</text>
+<path d="M1350 250l9 24 24 9-24 9-9 24-9-24-24-9 24-9z" fill="#8e85ff" opacity=".9"/>
+<path d="M500 70l6 16 16 6-16 6-6 16-6-16-16-6 16-6z" fill="#44d9ff" opacity=".9"/>
+<text x="64" y="457" fill="#91b6ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" letter-spacing="2">EXPLORE • LEARN • CREATE</text>
+</svg>
