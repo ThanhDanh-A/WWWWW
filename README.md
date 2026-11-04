@@ -1,248 +1,211 @@
-# 🌐 Dự án Demo
+# Personal AI Assistant – Trợ lý AI cá nhân
 
-Website demo của [ThanhDanh-A](https://github.com/ThanhDanh-A).
+<p align="center">
+  <strong>Trợ lý AI trên nền tảng web, hỗ trợ trò chuyện và giải đáp bằng Google Gemini.</strong>
+</p>
 
-## 🚀 Demo trực tuyến
-
-Sau khi bật GitHub Pages, bạn có thể truy cập website tại:
-
-👉 [Mở website Demo](https://thanhdanh-a.github.io/WWWWW/)
-## 🛠️ Công nghệ
-
-- HTML
-- CSS
-- JavaScript
-- GitHub Pages
-
-## 📦 Cách chạy
-
-Mở website bằng link demo phía trên sau khi GitHub Pages triển khai thành công.
-
-## 🔒 Bảo mật
-
-Không tải API key hoặc thông tin cá nhân lên repository công khai.
+<p align="center">
+  <a href="https://thanhdanh-a.github.io/WWWWW/">🌐 Trải nghiệm website</a> ·
+  <a href="https://github.com/ThanhDanh-A/WWWWW">📦 Mã nguồn GitHub</a> ·
+  <a href="https://aistudio.google.com/apikey">🔑 Tạo Gemini API Key</a>
+</p>
 
 ---
 
-Made with ❤️ by ThanhDanh-A
-📌 1. Giới thiệu dự án
+## 1. Giới thiệu
+
+**Personal AI Assistant** là dự án website trợ lý AI cá nhân được xây dựng bằng HTML, CSS và JavaScript. Ứng dụng sử dụng Google Gemini API để tiếp nhận câu hỏi, xử lý nội dung và trả về câu trả lời trực tiếp trên giao diện trò chuyện.
+
+Dự án hướng đến việc thực hành phát triển ứng dụng web, tích hợp API bên ngoài, quản lý dữ liệu ở trình duyệt và triển khai sản phẩm bằng GitHub Pages.
+
+## 2. Mục tiêu
+
+- Xây dựng giao diện chatbot thân thiện, dễ sử dụng.
+- Tìm hiểu cách gửi yêu cầu HTTP đến Google Gemini API.
+- Thực hành JavaScript hiện đại và chia mã nguồn thành các module.
+- Lưu lịch sử trò chuyện trên trình duyệt.
+- Thực hành quản lý mã nguồn bằng GitHub và triển khai website tĩnh.
+
+## 3. Chức năng chính
+
+| Chức năng | Mô tả |
+|---|---|
+| Trò chuyện với AI | Gửi câu hỏi và nhận câu trả lời từ Google Gemini |
+| Câu hỏi gợi ý | Có sẵn gợi ý kể chuyện, viết lời chúc, tâm sự và soạn tin nhắn |
+| Quản lý API Key | Người dùng tự nhập, lưu hoặc xóa API Key trên trình duyệt |
+| Lịch sử hội thoại | Tạo, mở và xóa các cuộc trò chuyện |
+| Lưu dữ liệu cục bộ | Lịch sử và API Key được lưu bằng localStorage |
+| Định dạng câu trả lời | Hiển thị nội dung Markdown, danh sách và đoạn mã |
+| Sao chép câu trả lời | Sao chép nội dung phản hồi của AI |
+| Giao diện responsive | Hỗ trợ bố cục máy tính và thiết bị di động |
+| Xử lý lỗi | Hiển thị thông báo khi API Key, mạng hoặc dịch vụ Gemini gặp vấn đề |
+| Model dự phòng | Thử model Gemini Flash-Lite trước, sau đó chuyển sang Flash khi cần |
+
+## 4. Công nghệ sử dụng
+
+| Công nghệ | Vai trò |
+|---|---|
+| HTML5 | Xây dựng cấu trúc trang web |
+| CSS3 | Thiết kế giao diện, hiệu ứng và responsive |
+| JavaScript ES Modules | Xử lý tương tác và chia nhỏ chức năng |
+| Google Gemini API | Tạo câu trả lời bằng trí tuệ nhân tạo |
+| Marked | Chuyển đổi nội dung Markdown |
+| DOMPurify | Làm sạch HTML trước khi hiển thị |
+| localStorage | Lưu API Key và lịch sử trò chuyện trên thiết bị |
+| GitHub | Quản lý mã nguồn |
+| GitHub Pages | Triển khai website tĩnh |
+
+## 5. Cấu trúc thư mục
 
-Website Demo là dự án được xây dựng nhằm thực hành các kiến thức cơ bản về phát triển website, đồng thời tìm hiểu quy trình đưa một trang web từ máy tính cá nhân lên Internet.
+```text
+WWWWW/
+├── index.html
+├── README.md
+├── .gitignore
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   ├── app.js
+│   │   ├── gemini.js
+│   │   └── storage.js
+│   └── images/
+│       └── logo.svg
+└── archive/
+    └── original/
+        ├── index.html
+        ├── README.md
+        └── README
+```
+
+**Vai trò các tệp chính:**
+
+- `index.html`: trang chính và các thành phần giao diện.
+- `assets/css/style.css`: màu sắc, bố cục, hiệu ứng và giao diện trên điện thoại.
+- `assets/js/app.js`: điều khiển giao diện, gửi tin nhắn và quản lý hội thoại.
+- `assets/js/gemini.js`: gọi Gemini API, xử lý phản hồi và model dự phòng.
+- `assets/js/storage.js`: đọc và ghi API Key, lịch sử hội thoại vào localStorage.
+- `assets/images/logo.svg`: biểu tượng của dự án.
+- `archive/original/`: bản sao các tệp gốc trước khi nâng cấp, được giữ lại để tham khảo và khôi phục.
+
+## 6. Hướng dẫn sử dụng
+
+### Bước 1. Mở website
+
+Truy cập [Personal AI Assistant](https://thanhdanh-a.github.io/WWWWW/).
+
+### Bước 2. Tạo Gemini API Key
+
+1. Mở [Google AI Studio – API Keys](https://aistudio.google.com/apikey).
+2. Đăng nhập tài khoản Google.
+3. Tạo API Key theo hướng dẫn của Google.
+4. Sao chép khóa vừa tạo.
+
+### Bước 3. Kết nối API Key
+
+1. Tại thanh bên trái của website, tìm mục **Kết nối Gemini**.
+2. Dán API Key vào ô nhập.
+3. Nhấn **Lưu API Key**.
+4. Website sẽ thông báo trạng thái đã cấu hình.
 
-Dự án hướng đến việc xây dựng một website có thể truy cập thông qua trình duyệt, giúp người dùng dễ dàng xem nội dung mà không cần tải mã nguồn về máy.
+### Bước 4. Trò chuyện
 
-Thông qua dự án này, người thực hiện có cơ hội tìm hiểu cách tổ chức mã nguồn, quản lý tệp tin, sử dụng GitHub để lưu trữ dự án và triển khai website bằng GitHub Pages.
+- Nhập câu hỏi vào khung tin nhắn và nhấn **Gửi tin nhắn**.
+- Nhấn Enter để gửi; dùng Shift + Enter để xuống dòng.
+- Có thể chọn một trong các thẻ gợi ý ở màn hình bắt đầu.
+- Nhấn **Cuộc trò chuyện mới** để bắt đầu phiên khác.
+- Chọn cuộc trò chuyện ở thanh bên để mở lại lịch sử.
+- Dùng nút **Sao chép** bên dưới câu trả lời để sao chép nội dung.
 
-Đây cũng là nền tảng để tiếp tục phát triển thêm các tính năng, cải thiện giao diện và bổ sung những nội dung mới trong tương lai.
+### Bước 5. Quản lý API Key
 
-🎯 2. Mục tiêu của dự án
+- Nhập khóa mới và nhấn **Lưu API Key** để thay khóa đang dùng.
+- Nhấn **Xóa** để xóa khóa đã lưu khỏi trình duyệt hiện tại.
 
-Dự án được thực hiện với những mục tiêu sau:
+## 7. Chạy dự án trên máy tính
 
-📚 Củng cố kiến thức cơ bản về lập trình web.
+Dự án không yêu cầu cài đặt framework hoặc công cụ build.
 
-💻 Thực hành xây dựng website bằng HTML và các công nghệ liên quan.
+1. Tải repository về máy bằng nút **Code → Download ZIP**, sau đó giải nén.
+2. Mở thư mục dự án.
+3. Chạy website bằng một máy chủ web tĩnh trong môi trường phát triển, ví dụ tiện ích Live Server trong Visual Studio Code.
+4. Mở địa chỉ localhost do máy chủ cung cấp.
+5. Nhập Gemini API Key trong giao diện để thử chức năng trò chuyện.
 
-🗂️ Tìm hiểu cách quản lý tệp tin và tổ chức mã nguồn.
+> Lưu ý: Nên chạy qua localhost hoặc HTTPS thay vì mở trực tiếp bằng đường dẫn file. JavaScript ES Modules có thể bị trình duyệt chặn khi mở bằng `file://`.
 
-🐙 Làm quen với GitHub và quy trình lưu trữ mã nguồn trực tuyến.
+## 8. Triển khai bằng GitHub Pages
 
-🌍 Tìm hiểu cách xuất bản website bằng GitHub Pages.
+1. Đưa mã nguồn lên repository GitHub.
+2. Mở **Settings → Pages**.
+3. Trong phần Build and deployment, chọn **Deploy from a branch**.
+4. Chọn nhánh triển khai và thư mục `/(root)`.
+5. Nhấn **Save** và chờ GitHub Pages hoàn tất.
+6. Truy cập website tại đường dẫn được GitHub Pages cung cấp.
 
-🔗 Tạo một đường dẫn công khai để chia sẻ website với mọi người.
+Đường dẫn dự án hiện tại: https://thanhdanh-a.github.io/WWWWW/
 
-🚀 Tạo nền tảng để phát triển các dự án web lớn hơn trong tương lai.
+Nếu website chưa cập nhật ngay, hãy chờ quá trình triển khai hoàn tất và tải lại trang.
 
-✨ 3. Các nội dung chính
+## 9. API và chi phí
 
-Dự án tập trung vào việc xây dựng và triển khai một trang web có thể truy cập trực tuyến.
+Ứng dụng gọi Gemini Developer API trực tiếp từ trình duyệt. Mã nguồn hiện ưu tiên hai model:
 
-Các nội dung chính bao gồm:
+- `gemini-3.5-flash-lite`
+- `gemini-3.8-flash` (model dự phòng)
 
-Giao diện website: Hiển thị nội dung thông qua trình duyệt web.
+Google có cung cấp cấp miễn phí cho một số model và hạn mức sử dụng. Khả năng truy cập, giới hạn tốc độ và điều kiện sử dụng có thể thay đổi theo model, tài khoản và khu vực. Hãy xem [bảng giá Gemini API](https://ai.google.dev/gemini-api/docs/pricing) trước khi sử dụng. Dự án không tự động đăng ký gói trả phí hoặc bật thanh toán.
 
-Mã nguồn HTML: Xây dựng cấu trúc và nội dung của trang web.
+## 10. Lưu ý bảo mật và quyền riêng tư
 
-Quản lý dự án: Lưu trữ các tệp cần thiết trong repository GitHub.
+- **Không đưa API Key vào mã nguồn, README, ảnh chụp màn hình hoặc commit Git.**
+- API Key được lưu trong localStorage của trình duyệt và được gửi đến Google qua header HTTPS `x-goog-api-key`, không ghép vào URL.
+- Vì đây là ứng dụng chạy hoàn toàn ở phía trình duyệt, người dùng có quyền truy cập thiết bị và DevTools vẫn có thể xem hoặc sử dụng khóa. Cách này phù hợp cho dự án học tập và trải nghiệm cá nhân, **không phải cách bảo vệ khóa cho ứng dụng công khai nhiều người dùng**.
+- Không sử dụng API Key cá nhân trên máy tính công cộng. Xóa khóa khỏi trình duyệt khi không còn sử dụng.
+- Nếu Google AI Studio hoặc Google Cloud hỗ trợ, hãy giới hạn API Key theo website và API cần dùng; theo dõi hạn mức sử dụng.
+- Không nhập thông tin cá nhân nhạy cảm hoặc nội dung bí mật vào chatbot.
+- Theo chính sách cấp miễn phí của Google, dữ liệu gửi đến một số dịch vụ/model có thể được dùng để cải thiện sản phẩm. Hãy đọc [điều khoản và chính sách dữ liệu của Gemini API](https://ai.google.dev/gemini-api/terms) trước khi gửi dữ liệu riêng tư.
+- Nếu phát triển thành sản phẩm công khai thực tế, nên chuyển việc gọi Gemini API sang backend do mình kiểm soát để giữ API Key ở phía máy chủ.
 
-Triển khai trực tuyến: Sử dụng GitHub Pages để xuất bản website.
+## 11. Kiểm thử đề xuất
 
-Chia sẻ sản phẩm: Cung cấp đường dẫn để người khác truy cập và trải nghiệm.
+Trước khi giới thiệu sản phẩm, hãy kiểm tra các tình huống sau:
 
-Các chức năng cụ thể của website sẽ phụ thuộc vào nội dung và mã nguồn được triển khai trong dự án.
+- [ ] Website mở được trên máy tính.
+- [ ] Website hiển thị tốt trên màn hình điện thoại.
+- [ ] Lưu API Key và tải lại trang vẫn giữ trạng thái đã cấu hình.
+- [ ] Gửi câu hỏi và nhận được phản hồi từ Gemini.
+- [ ] Các thẻ câu hỏi gợi ý hoạt động.
+- [ ] Enter gửi tin nhắn; Shift + Enter xuống dòng.
+- [ ] Có thể tạo, mở và xóa cuộc trò chuyện.
+- [ ] Tải lại trang vẫn còn lịch sử đã lưu.
+- [ ] Nút sao chép câu trả lời hoạt động.
+- [ ] API Key sai hoặc hết hạn hiển thị thông báo phù hợp.
+- [ ] Xóa API Key làm ứng dụng yêu cầu cấu hình lại trước khi trò chuyện.
 
-🛠️ 4. Công nghệ sử dụng
+## 12. Hướng phát triển
 
-Công nghệ
+- Bổ sung tùy chọn giao diện sáng/tối.
+- Cho phép đổi tên cuộc trò chuyện.
+- Thêm xuất và nhập lịch sử hội thoại.
+- Bổ sung tùy chọn model trong phần cài đặt.
+- Nâng cao khả năng truy cập và hỗ trợ bàn phím.
+- Xây dựng backend riêng nếu triển khai cho nhiều người dùng.
 
-Vai trò
+## 13. Tác giả
 
-HTML5
+**ThanhDanh-A**
 
-Xây dựng cấu trúc nội dung website
+- GitHub: [@ThanhDanh-A](https://github.com/ThanhDanh-A)
+- Repository: [WWWWW](https://github.com/ThanhDanh-A/WWWWW)
+- Website: [Personal AI Assistant](https://thanhdanh-a.github.io/WWWWW/)
 
-CSS3
+## 14. Ghi chú dự án
 
-Thiết kế giao diện, màu sắc và bố cục nếu được sử dụng
+Dự án được xây dựng với mục đích học tập và thực hành phát triển ứng dụng web, tích hợp API và triển khai sản phẩm trên GitHub Pages.
 
-JavaScript
+Thư mục `archive/original/` lưu lại phiên bản gốc trước khi nâng cấp. Những thay đổi mới được thực hiện trên nhánh phát triển riêng để có thể kiểm tra trước khi đưa vào nhánh chính.
 
-Bổ sung các chức năng tương tác nếu được sử dụng
+---
 
-GitHub
-
-Lưu trữ và quản lý mã nguồn
-
-GitHub Pages
-
-Triển khai website lên Internet
-
-🌍 5. Truy cập website
-
-Bạn có thể truy cập website thông qua đường dẫn bên dưới sau khi quá trình triển khai hoàn tất.
-
-👉 MỞ WEBSITE DEMO
-
-Lưu ý: Đường dẫn sẽ hoạt động khi repository đã có mã nguồn phù hợp và GitHub Pages triển khai thành công.
-
-📂 6. Cấu trúc dự án
-
-Cấu trúc dự án dự kiến:
-
-d-n-demo/
-│
-├── index.html       # Trang chính của website
-├── README.md        # Tài liệu giới thiệu dự án
-├── style.css        # Tệp định dạng giao diện (nếu có)
-└── script.js        # Tệp xử lý tương tác (nếu có)
-
-Ý nghĩa các tệp:
-
-index.html: Tệp trang chính, chứa cấu trúc nội dung website.
-
-README.md: Tài liệu mô tả mục tiêu, công nghệ và cách sử dụng dự án.
-
-style.css: Tệp dùng để thiết kế giao diện nếu dự án tách riêng phần CSS.
-
-script.js: Tệp dùng để xử lý tương tác nếu dự án có sử dụng JavaScript.
-
-Cấu trúc thực tế có thể thay đổi tùy theo cách tổ chức mã nguồn.
-
-🚀 7. Hướng dẫn truy cập và sử dụng
-
-Đối với người xem
-
-Mở đường dẫn website công khai.
-
-Chờ trình duyệt tải nội dung trang web.
-
-Sử dụng các chức năng được cung cấp trên giao diện.
-
-Chia sẻ đường dẫn cho người khác nếu muốn giới thiệu dự án.
-
-Đối với người muốn xem mã nguồn
-
-Truy cập repository GitHub của dự án.
-
-Chọn tệp muốn tìm hiểu.
-
-Nhấn vào tệp để xem nội dung mã nguồn.
-
-Có thể tải repository về máy để nghiên cứu hoặc thực hành.
-
-⚙️ 8. Cách chạy dự án trên máy tính
-
-Nếu muốn chạy website trực tiếp trên máy tính:
-
-Tải mã nguồn từ repository GitHub.
-
-Giải nén thư mục nếu tải về dưới dạng ZIP.
-
-Tìm tệp index.html.
-
-Nhấn đúp vào tệp để mở bằng trình duyệt.
-
-Nếu dự án sử dụng các tệp CSS hoặc JavaScript riêng, hãy giữ nguyên cấu trúc thư mục để website hoạt động đúng.
-
-📦 9. Triển khai với GitHub Pages
-
-GitHub Pages là dịch vụ hỗ trợ xuất bản các website tĩnh từ repository GitHub.
-
-Các bước triển khai cơ bản:
-
-Đưa mã nguồn website lên repository.
-
-Đảm bảo có tệp index.html tại thư mục gốc.
-
-Mở phần Settings của repository.
-
-Chọn mục Pages.
-
-Chọn nguồn triển khai Deploy from a branch.
-
-Chọn nhánh main và thư mục /(root).
-
-Nhấn Save và chờ quá trình triển khai hoàn tất.
-
-Truy cập đường dẫn website được GitHub Pages cung cấp.
-
-Sau khi cập nhật mã nguồn, website có thể cần một khoảng thời gian để hiển thị phiên bản mới.
-
-🔒 10. Lưu ý về bảo mật
-
-Khi phát triển và chia sẻ dự án công khai, cần lưu ý:
-
-Không tải mật khẩu hoặc thông tin đăng nhập lên repository.
-
-Không công khai API key hoặc token truy cập.
-
-Không đưa thông tin cá nhân nhạy cảm vào mã nguồn.
-
-Kiểm tra nội dung trước khi tải tệp lên GitHub.
-
-Chỉ chia sẻ những dữ liệu mà bạn có quyền công khai.
-
-🔮 11. Định hướng phát triển
-
-Trong tương lai, dự án có thể được cải tiến theo các hướng:
-
-🎨 Nâng cấp giao diện để website đẹp và dễ sử dụng hơn.
-
-📱 Tối ưu hiển thị trên điện thoại, máy tính bảng và máy tính.
-
-✨ Bổ sung hiệu ứng và các thành phần tương tác.
-
-🧭 Cải thiện cách tổ chức mã nguồn.
-
-📖 Bổ sung tài liệu hướng dẫn chi tiết.
-
-🧪 Kiểm tra khả năng hoạt động trên nhiều trình duyệt.
-
-🚀 Tiếp tục học hỏi và áp dụng các công nghệ web mới.
-
-Những cải tiến này sẽ được thực hiện tùy theo mục tiêu và yêu cầu của dự án.
-
-👨‍💻 12. Tác giả
-
-ThanhDanh-A
-
-GitHub: @ThanhDanh-A
-
-Repository: d-n-demo
-
-Website: Website Demo
-
-💬 13. Đóng góp và phản hồi
-
-Nếu bạn quan tâm đến dự án, hãy ghé thăm repository để tìm hiểu thêm về mã nguồn.
-
-Mọi ý tưởng cải tiến, góp ý về giao diện hoặc đề xuất tính năng đều có thể giúp dự án ngày càng hoàn thiện hơn.
-
-📜 14. Giấy phép
-
-Dự án được chia sẻ nhằm mục đích học tập và thực hành phát triển website. Nếu muốn sử dụng lại mã nguồn, vui lòng kiểm tra quyền sử dụng và các điều kiện giấy phép được cung cấp trong repository.
-
-<p align="center">
-  <b>🌟 Cảm ơn bạn đã ghé thăm dự án!</b><br>
-  Được xây dựng với tinh thần học hỏi, thực hành và không ngừng cải thiện.
-</p>
+<p align="center"><strong>Personal AI Assistant – Your smart companion.</strong></p>
