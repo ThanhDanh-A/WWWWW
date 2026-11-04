@@ -73,16 +73,25 @@ jobs:
                   missing_files.append(reference)
 
           app_source = Path("assets/js/app.js").read_text(encoding="utf-8")
-          pattern = r"""document\\.getElementById\\(["']([^"']+)["']\\)"""
+          pattern = r"""document\.getElementById\("([^"]+)"\)"""
           required_ids = set(re.findall(pattern, app_source))
+
+          module_paths = re.findall(r"""from\\s+["'](\\./[^"']+)["']""", app_source)
+          missing_modules = [
+              module for module in module_paths
+              if not (Path("assets/js") / module.removeprefix("./")).exists()
+          ]
           missing_ids = sorted(required_ids - parser.ids)
 
           if missing_files:
               raise SystemExit("Missing local files: " + ", ".join(missing_files))
           if missing_ids:
               raise SystemExit("Missing HTML element IDs: " + ", ".join(missing_ids))
+          if missing_modules:
+              raise SystemExit("Missing JavaScript modules: " + ", ".join(missing_modules))
 
           print(f"Checked {len(parser.references)} local/remote HTML references.")
           print(f"Checked {len(required_ids)} JavaScript element IDs.")
+          print(f"Checked {len(module_paths)} JavaScript imports.")
           print("Static checks passed.")
           PY
