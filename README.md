@@ -250,7 +250,7 @@ Nếu website chưa cập nhật ngay, hãy chờ quá trình triển khai hoàn
 - `gemini-3.5-flash-lite`
 - `gemini-3.8-flash` (model dự phòng)
 
-Ứng dụng chỉ gửi `maxOutputTokens` trong cấu hình tạo nội dung; không tự đặt `temperature` hoặc `topP`, phù hợp khuyến nghị cho các model Gemini 3.x. Xem [ghi chú Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5).
+Ứng dụng chỉ gửi `maxOutputTokens` trong cấu hình tạo nội dung; không tự đặt `temperature` hoặc `topP`, phù hợp khuyến nghị cho các model Gemini 3.x. Xem [ghi chú Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5). Phiên bản hiện tại vẫn dùng endpoint `generateContent` (Generate Content API – Legacy) để giữ tương thích với luồng chat hiện có; có thể cân nhắc chuyển sang Interactions API trong một lần nâng cấp riêng. Xem [tài liệu Generate Content](https://ai.google.dev/gemini-api/docs/generate-content) và [hướng dẫn chuyển đổi SDK/API](https://ai.google.dev/gemini-api/docs/migrate).
 
 Google có cung cấp cấp miễn phí cho một số model và hạn mức sử dụng. Khả năng truy cập, giới hạn tốc độ và điều kiện sử dụng có thể thay đổi theo model, tài khoản và khu vực. Hãy xem [bảng giá Gemini API](https://ai.google.dev/gemini-api/docs/pricing) trước khi sử dụng. Dự án không tự động đăng ký gói trả phí hoặc bật thanh toán.
 
