@@ -45,7 +45,11 @@ flowchart TD
 - Lịch sử: localStorage theo khóa `personal_ai_conversations`.
 - Dữ liệu không được đồng bộ giữa các trình duyệt hoặc thiết bị.
 
-## 6. Giới hạn và bảo mật
+## 6. Ghi chú về phiên bản API
+
+Phiên bản hiện tại dùng endpoint Generate Content API (`generateContent`), được tài liệu Google đánh dấu là Legacy. Cách này được giữ lại để bảo toàn luồng chat hiện có. Khi có thời gian kiểm thử và nâng cấp riêng, có thể đánh giá việc chuyển sang Interactions API theo hướng dẫn di chuyển chính thức của Google.
+
+## 7. Giới hạn và bảo mật
 
 Ứng dụng gọi Gemini API trực tiếp từ trình duyệt. Vì vậy, người có quyền truy cập thiết bị hoặc công cụ dành cho nhà phát triển của trình duyệt có thể tìm thấy API Key đã lưu. Không dùng khóa trên máy tính công cộng, không commit khóa lên GitHub và không xem phiên bản frontend này là kiến trúc an toàn cho dịch vụ nhiều người dùng.
 
