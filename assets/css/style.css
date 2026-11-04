@@ -27,3 +27,11 @@
 .heading-mascot span{max-width:95px;color:#8fa5cf;font-size:8px;line-height:1.55}
 @media(max-width:900px){.heading-actions{gap:9px}.heading-mascot img{width:70px;height:63px}.heading-mascot span{display:none}}
 @media(max-width:600px){.heading-actions{gap:5px}.heading-mascot img{width:56px;height:52px}.new-session-button{width:34px;height:34px;justify-content:center;padding:0;overflow:hidden;font-size:0}.new-session-button span{font-size:19px}}
+
+/* API Key save and real connection-test states */
+.button-test-key{display:block;width:100%;margin-top:8px;padding:9px 10px;border:1px solid rgba(101,213,239,.3);background:rgba(101,213,239,.07);color:#9ee8f6}
+.button-test-key:hover:not(:disabled){border-color:rgba(101,213,239,.65);background:rgba(101,213,239,.13);color:#d8f8ff}
+.button-test-key:disabled{opacity:.48;cursor:not-allowed}
+.connection-pill.is-checking .connection-dot{background:#e5bd71;box-shadow:0 0 8px rgba(229,189,113,.45)}
+.connection-pill.is-error{border-color:rgba(255,126,145,.3);color:#ff9eac}
+.connection-pill.is-error .connection-dot{background:#ff7e91;box-shadow:0 0 8px rgba(255,126,145,.45)}
