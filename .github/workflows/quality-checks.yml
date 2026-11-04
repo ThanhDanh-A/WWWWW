@@ -1,0 +1,90 @@
+name: Project quality checks
+
+on:
+  push:
+    branches:
+      - main
+      - "feature/**"
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  static-checks:
+    name: JavaScript syntax and local references
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get repository source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check JavaScript module syntax
+        run: |
+          for file in assets/js/app.js assets/js/gemini.js assets/js/storage.js; do
+            echo "Checking $file"
+            node --check --input-type=module < "$file"
+          done
+
+      - name: Check HTML references and JavaScript element IDs
+        run: |
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+          import re
+          from urllib.parse import urlparse
+
+          class PageParser(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.ids = set()
+                  self.references = []
+
+              def handle_starttag(self, tag, attrs):
+                  values = dict(attrs)
+                  if values.get("id"):
+                      self.ids.add(values["id"])
+                  for attribute in ("src", "href"):
+                      value = values.get(attribute, "")
+                      if value:
+                          self.references.append(value)
+
+          page = Path("index.html")
+          html = page.read_text(encoding="utf-8")
+          parser = PageParser()
+          parser.feed(html)
+
+          missing_files = []
+          for reference in parser.references:
+              parsed = urlparse(reference)
+              if parsed.scheme or reference.startswith("#"):
+                  continue
+              target = parsed.path
+              if target in ("", "./", "/"):
+                  continue
+              local_path = Path(target.lstrip("/"))
+              if not local_path.exists():
+                  missing_files.append(reference)
+
+          app_source = Path("assets/js/app.js").read_text(encoding="utf-8")
+          required_ids = set(re.findall(
+              r'document\\.getElementById\\(["\\']([^"\\']+)["\\']\\)',
+              app_source
+          ))
+          missing_ids = sorted(required_ids - parser.ids)
+
+          if missing_files:
+              raise SystemExit("Missing local files: " + ", ".join(missing_files))
+          if missing_ids:
+              raise SystemExit("Missing HTML element IDs: " + ", ".join(missing_ids))
+
+          print(f"Checked {len(parser.references)} local/remote HTML references.")
+          print(f"Checked {len(required_ids)} JavaScript element IDs.")
+          print("Static checks passed.")
+          PY
