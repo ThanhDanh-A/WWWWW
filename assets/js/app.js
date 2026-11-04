@@ -589,6 +589,7 @@ el.chatForm.addEventListener("submit", (event) => {
   sendMessage();
 });
 
+el.apiKeyInput.addEventListener("input", updateConnectionUI);
 el.userInput.addEventListener("input", updateComposer);
 el.userInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter" && !event.shiftKey) {
