@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/images/github-banner.svg" alt="Personal AI Assistant — Your Smart Companion" width="100%">
+</p>
+
 # Personal AI Assistant – Trợ lý AI cá nhân
 
 <p align="center">
